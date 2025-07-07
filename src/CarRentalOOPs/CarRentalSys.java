@@ -4,7 +4,8 @@ import java.util.*;
 public class CarRentalSys {
 
     class Car{
-        private String;
+        private String carID;
+        private String brand;
     }
 
 
