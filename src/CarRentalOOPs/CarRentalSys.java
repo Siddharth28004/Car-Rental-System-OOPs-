@@ -7,6 +7,13 @@ public class CarRentalSys {
         private String carID;
         private String brand;
         private String price;
+        private boolean sunroof;
+
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("hello");
 
     }
 
