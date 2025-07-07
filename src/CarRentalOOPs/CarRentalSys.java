@@ -6,6 +6,7 @@ public class CarRentalSys {
     class Car{
         private String carID;
         private String brand;
+        private String price;
     }
 
 
