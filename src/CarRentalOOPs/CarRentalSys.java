@@ -102,9 +102,50 @@ public class CarRentalSys {
         public void rentCar(Car car, Customer customer, int days){
             if(car.isAvailable()){
                 car.rent();
-                rentals.add(new Rental(car,customer,days));
+                rentals.add(new Rental(customer, car,days));
             }
+            else{
+                System.out.println("Car is not available for rent");
+            }
+
         }
+
+        public void returnCar(Car car){
+            car.returnCar();
+            Rental rentaltoremove=null;
+            for( Rental rental: rentals){
+                if(rental.getCar()==car){
+                    rentaltoremove=rental;
+                    break;
+                }
+            }
+            if(rentaltoremove!=null){
+                rentals.remove(rentaltoremove);
+                System.out.println("Car returned successfully!");
+
+            }
+            else{
+                System.out.println("Car was not rented. Please input details correctly or verify if the car was rented in the first place");
+            }
+
+        }
+
+        public void menu(){
+            Scanner scanner = new Scanner(System.in);
+            while(true){
+                System.out.println("==== Car Rental System ====");
+                System.out.println("1. Rent a Car");
+                System.out.println("2. Return a Car");
+                System.out.println("3.Exit");
+                System.out.print("Enter your choice: ");
+
+                int choice= scanner.nextInt();
+
+
+
+
+
+            }
     }
 
 
