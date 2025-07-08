@@ -65,7 +65,7 @@ public class CarRentalSys {
         private String customername;
         private String customerId;
 
-        public Customer(String customername, String customerId){
+        public Customer(String customerId, String customername){
             this.customerId=customerId;
             this.customername=customername;
         }
@@ -141,6 +141,49 @@ public class CarRentalSys {
 
                 int choice= scanner.nextInt();
 
+                if(choice==1){
+                    System.out.println("\n===Rent a Car===\n");
+                    System.out.println("Enter your name");
+                    String customername= scanner.nextLine();
+
+                    System.out.println("\n Available Cars:-");
+                    for(Car car:cars){
+                        if(car.isAvailable){
+                            System.out.println(car.getCarID()+"-"+car.getBrand()+" "+car.getModel());
+                        }
+
+                    }
+                    System.out.println("\n Enter the carID of the car that you would like to rent:");
+                    String carId = scanner.nextLine();
+
+                    System.out.println("Enter the number of days you would like to rent for: ");
+                    int rentaldays= scanner.nextInt();
+                    scanner.nextLine();
+
+                    Customer newcustomer= new Customer("CUS"+(customers.size()+1), customername);
+                    addCustomer(newcustomer);
+
+                    Car selectedcar=null;
+                    for(Car car:cars){
+                        if(car.getCarID().equals(carId)&&car.isAvailable()){
+                            selectedcar=car;
+                            break;
+                        }
+                    }
+
+                    if(selectedcar!=null){
+                        double total price= selectedcar.calculatetotalprice(rentaldays);//part of Car class attribs
+
+                    }
+
+
+
+
+
+
+                }
+            }
+
 
 
 
@@ -151,6 +194,7 @@ public class CarRentalSys {
 
     public static void main(String[] args) {
         System.out.println("hello");
+
 
     }
 
