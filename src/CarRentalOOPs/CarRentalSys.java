@@ -267,10 +267,4 @@ public class CarRentalSys {
         rentalSystem.menu();
     }
 
-
-
-
-
-
-
 }
